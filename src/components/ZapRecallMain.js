@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Footer from "../components/Footer";
 import Logo from "../components/Logo/Logo";
 import Cards from "./Cards";
 

@@ -8,15 +8,26 @@ export default function Answers(props) {
       answer={props.answer}
       answered={props.answered}
     >
-      <p>{props.answer}</p>
+      <p data-test="flashcard-text">{props.answer}</p>
       <div className="containerBotoes">
-        <button onClick={() => props.showFlashCardMarkedWrong()}>
+        <button
+          data-test="no-btn"
+          onClick={() => props.showFlashCardMarkedWrong()}
+        >
           Não lembrei
         </button>
-        <button onClick={() => props.showFlashCardMarkedAlmost()}>
+        <button
+          data-test="partial-btn"
+          onClick={() => props.showFlashCardMarkedAlmost()}
+        >
           Quase não lembrei
         </button>
-        <button onClick={() => props.showFlashCardMarkedCorrect()}>Zap!</button>
+        <button
+          data-test="zap-btn"
+          onClick={() => props.showFlashCardMarkedCorrect()}
+        >
+          Zap!
+        </button>
       </div>
     </StyledOpenedAnswer>
   );

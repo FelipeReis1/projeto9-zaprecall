@@ -8,8 +8,9 @@ export default function Questions(props) {
     >
       {props.questionVisible === true ? (
         <>
-          <p>{props.question}</p>
+          <p data-test="flashcard-text">{props.question}</p>
           <img
+            data-test="turn-btn"
             onClick={() => props.showAnswer()}
             src={seta_virar}
             alt="seta_virar"

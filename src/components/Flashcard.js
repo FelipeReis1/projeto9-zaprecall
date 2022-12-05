@@ -16,7 +16,6 @@ export default function Flashcard(props) {
   const [answeredWrong, setAnsweredWrong] = useState(false);
   const [answeredAlmost, setAnsweredAlmost] = useState(false);
   const [answeredCorrect, setAnsweredCorrect] = useState(false);
-  //const [answeredCounter, setAnsweredCounter] = useState(0);
 
   function showAnswer() {
     setAnswerVisible(true);
@@ -48,21 +47,27 @@ export default function Flashcard(props) {
   return (
     <>
       <StyledClosedQuestion
+        data-test="flashcard"
         flashCardVisible={flashCardVisible}
         answeredWrong={answeredWrong}
         answeredAlmost={answeredAlmost}
         answeredCorrect={answeredCorrect}
         answered={answered}
       >
-        <p>Pergunta {props.numPergunta}</p>
+        <p data-test="flashcard-text">Pergunta {props.numPergunta}</p>
         {!answered ? (
-          <img onClick={() => turnCard()} src={seta_play} alt="seta_play"></img>
+          <img
+            data-test="play-btn"
+            onClick={() => turnCard()}
+            src={seta_play}
+            alt="seta_play"
+          ></img>
         ) : answeredWrong ? (
-          <img src={icone_erro} alt="icone_erro" />
+          <img data-test="no-icon" src={icone_erro} alt="icone_erro" />
         ) : answeredAlmost ? (
-          <img src={icone_quase} alt="icone_quase" />
+          <img data-test="partial-icon" src={icone_quase} alt="icone_quase" />
         ) : answeredCorrect ? (
-          <img src={icone_certo} alt="icone_certo" />
+          <img data-test="zap-icon" src={icone_certo} alt="icone_certo" />
         ) : (
           <img onClick={() => turnCard()} src={seta_play} alt="seta_play"></img>
         )}

@@ -4,7 +4,7 @@ export default function Footer(props) {
   console.log(props.answeredCounter);
   return (
     <StyledFooter>
-      <p>{props.answeredCounter}/8 CONCLUÍDOS</p>
+      <p data-test="footer">{props.answeredCounter}/8 CONCLUÍDOS</p>
     </StyledFooter>
   );
 }
