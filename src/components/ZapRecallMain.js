@@ -8,7 +8,6 @@ export default function ZapRecallMain() {
     <StyledContainer>
       <Logo />
       <Cards />
-      <Footer />
     </StyledContainer>
   );
 }

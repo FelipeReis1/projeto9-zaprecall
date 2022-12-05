@@ -1,6 +1,7 @@
+import { useState } from "react";
 import Flashcard from "./Flashcard";
-
 export default function Cards() {
+  const [answeredCounter, setAnsweredCounter] = useState(0);
   const cards = [
     {
       question: "O que é JSX?",
@@ -39,6 +40,8 @@ export default function Cards() {
           numPergunta={index + 1}
           question={c.question}
           answer={c.answer}
+          answeredCounter={answeredCounter}
+          setAnsweredCounter={setAnsweredCounter}
         ></Flashcard>
       ))}
     </>

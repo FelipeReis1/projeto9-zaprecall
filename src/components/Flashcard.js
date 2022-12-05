@@ -3,6 +3,7 @@ import seta_play from "../assets/img/seta_play.png";
 import { useState } from "react";
 import Questions from "./Questions";
 import Answers from "./Answers";
+import Footer from "./Footer";
 import icone_certo from "../assets/img/icone_certo.png";
 import icone_quase from "../assets/img/icone_quase.png";
 import icone_erro from "../assets/img/icone_erro.png";
@@ -15,6 +16,7 @@ export default function Flashcard(props) {
   const [answeredWrong, setAnsweredWrong] = useState(false);
   const [answeredAlmost, setAnsweredAlmost] = useState(false);
   const [answeredCorrect, setAnsweredCorrect] = useState(false);
+  //const [answeredCounter, setAnsweredCounter] = useState(0);
 
   function showAnswer() {
     setAnswerVisible(true);
@@ -27,18 +29,21 @@ export default function Flashcard(props) {
     setAnswerVisible(false);
     setAnsweredWrong(true);
     setAnswered(true);
+    props.setAnsweredCounter(props.answeredCounter + 1);
   }
   function showFlashCardMarkedAlmost() {
     setFlashCardVisible(false);
     setAnswerVisible(false);
     setAnsweredAlmost(true);
     setAnswered(true);
+    props.setAnsweredCounter(props.answeredCounter + 1);
   }
   function showFlashCardMarkedCorrect() {
     setFlashCardVisible(false);
     setAnswerVisible(false);
     setAnsweredCorrect(true);
     setAnswered(true);
+    props.setAnsweredCounter(props.answeredCounter + 1);
   }
   return (
     <>
@@ -53,11 +58,11 @@ export default function Flashcard(props) {
         {!answered ? (
           <img onClick={() => turnCard()} src={seta_play} alt="seta_play"></img>
         ) : answeredWrong ? (
-          <img src={icone_erro} />
+          <img src={icone_erro} alt="icone_erro" />
         ) : answeredAlmost ? (
-          <img src={icone_quase} />
+          <img src={icone_quase} alt="icone_quase" />
         ) : answeredCorrect ? (
-          <img src={icone_certo} />
+          <img src={icone_certo} alt="icone_certo" />
         ) : (
           <img onClick={() => turnCard()} src={seta_play} alt="seta_play"></img>
         )}
@@ -85,6 +90,7 @@ export default function Flashcard(props) {
       ) : (
         ""
       )}
+      <Footer answeredCounter={props.answeredCounter} />
     </>
   );
 }
