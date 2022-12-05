@@ -6,7 +6,7 @@ export default function Questions(props) {
       questionVisible={props.questionVisible}
       setFlashCardVisible={props.setFlashCardVisible}
     >
-      {props.questionVisible === true ? (
+      {props.questionVisible && (
         <>
           <p data-test="flashcard-text">{props.question}</p>
           <img
@@ -16,8 +16,6 @@ export default function Questions(props) {
             alt="seta_virar"
           ></img>
         </>
-      ) : (
-        ""
       )}
     </StyledOpenedQuestion>
   );
@@ -39,9 +37,7 @@ const StyledOpenedQuestion = styled.ul`
   color: #333333;
   position: relative;
   display: ${(props) =>
-    props.questionVisible === true
-      ? "flex" && props.setFlashCardVisible(true)
-      : "none"};
+    props.questionVisible ? "flex" && props.setFlashCardVisible(true) : "none"};
   flex-direction: column;
   justify-content: space-between;
   img {

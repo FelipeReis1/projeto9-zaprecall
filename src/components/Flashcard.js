@@ -72,17 +72,15 @@ export default function Flashcard(props) {
           <img onClick={() => turnCard()} src={seta_play} alt="seta_play"></img>
         )}
       </StyledClosedQuestion>
-      {questionVisible ? (
+      {questionVisible && (
         <Questions
           questionVisible={questionVisible}
           question={props.question}
           showAnswer={showAnswer}
           setFlashCardVisible={setFlashCardVisible}
         />
-      ) : (
-        ""
       )}
-      {answerVisible ? (
+      {answerVisible && (
         <Answers
           answerVisible={answerVisible}
           answer={props.answer}
@@ -92,8 +90,6 @@ export default function Flashcard(props) {
           showFlashCardMarkedAlmost={showFlashCardMarkedAlmost}
           showFlashCardMarkedCorrect={showFlashCardMarkedCorrect}
         />
-      ) : (
-        ""
       )}
       <Footer answeredCounter={props.answeredCounter} />
     </>
@@ -108,7 +104,7 @@ const StyledClosedQuestion = styled.ul`
   padding: 15px;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  display: ${(props) => (props.flashCardVisible === false ? "flex" : "none")};
+  display: ${(props) => (!props.flashCardVisible ? "flex" : "none")};
   align-items: center;
   justify-content: space-between;
   position: relative;

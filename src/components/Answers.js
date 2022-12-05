@@ -49,9 +49,7 @@ const StyledOpenedAnswer = styled.ul`
   color: #333333;
   position: relative;
   display: ${(props) =>
-    props.answerVisible === true
-      ? "flex" && props.setQuestionVisible(false)
-      : "none"};
+    props.answerVisible ? "flex" && props.setQuestionVisible(false) : "none"};
   flex-direction: column;
   justify-content: space-between;
   .containerBotoes {

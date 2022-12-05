@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export default function Footer(props) {
-  console.log(props.answeredCounter);
   return (
     <StyledFooter>
       <p data-test="footer">{props.answeredCounter}/8 CONCLUÍDOS</p>
